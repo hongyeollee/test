@@ -1,0 +1,43 @@
+{
+  "data": [
+    {
+      "cust": [
+        {
+          "guest_code": "123",
+          "guest_name": "가나다",
+          "guest_birth": "20000805"
+        },
+        {
+          "guest_code": "234",
+          "guest_name": "홍길동",
+          "guest_birth": "19861209"
+        },
+        {
+          "guest_code": "345",
+          "guest_name": "고길동",
+          "guest_birth": "19981010"
+        }
+      ],
+      "cust_detail": [
+        {
+          "guest_code": "123",
+          "guest_hp": "01011112222",
+          "guest_addr": "서울시",
+          "guest_mail": "ganada@naver.com"
+        },
+        {
+          "guest_code": "234",
+          "guest_hp": "01023235656",
+          "guest_addr": "대전시",
+          "guest_mail": "hong1986@gmail.com"
+        },
+        {
+          "guest_code": "345",
+          "guest_hp": "01078568912",
+          "guest_addr": "제주시",
+          "guest_mail": "dooley@yahoo.co.kr"
+        }
+      ]
+    }
+  ]
+}

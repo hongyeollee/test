@@ -45,3 +45,9 @@ export const deleteCust = catchAsync(async (req, res) => {
 
   res.status(200).json({ message: "data delete success" });
 });
+
+export const getCust = catchAsync(async (req, res) => {
+  const data = await custService.getCust();
+
+  res.status(200).json({ data });
+});
