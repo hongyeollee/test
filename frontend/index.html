@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Customer Management</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Customer Management</h1>
+      <form id="customer-form">
+        <!-- Input fields for creating a new customer -->
+        <input
+          type="text"
+          name="guest_code"
+          placeholder="Guest Code"
+          required
+        />
+        <input
+          type="text"
+          name="guest_name"
+          placeholder="Guest Name"
+          required
+        />
+        <input
+          type="text"
+          name="guest_birth"
+          placeholder="Guest Birth"
+          required
+        />
+        <input type="text" name="guest_hp" placeholder="Guest HP" required />
+        <input
+          type="text"
+          name="guest_addr"
+          placeholder="Guest Address"
+          required
+        />
+        <input
+          type="text"
+          name="guest_mail"
+          placeholder="Guest Email"
+          required
+        />
+        <button type="submit">Create</button>
+        <button type="button" onclick="handleEditButtonClick()">Edit</button>
+        <button type="button" onclick="handleDeleteButtonClick()">
+          Delete
+        </button>
+        <button type="button" onclick="handleCancelButtonClick()">
+          Cancel
+        </button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Guest Code</th>
+            <th>Guest Name</th>
+            <th>Guest Birth</th>
+            <th>Guest HP</th>
+            <th>Guest Address</th>
+            <th>Guest Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+
+      <form id="edit-form" style="display: none">
+        <input type="text" name="edit_guest_code" readonly />
+        <input type="text" name="edit_guest_name" />
+        <input type="text" name="edit_guest_birth" />
+        <input type="text" name="edit_guest_hp" />
+        <input type="text" name="edit_guest_addr" />
+        <input type="text" name="edit_guest_mail" />
+        <button type="submit">Save Changes</button>
+      </form>
+
+      <div id="edit-delete-buttons" style="display: none">
+        <button id="edit-button" onclick="handleEditButtonClick()">Edit</button>
+        <button id="delete-button" onclick="handleDeleteButtonClick()">
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

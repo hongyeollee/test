@@ -207,3 +207,24 @@ export const deleteCust = async (guest_code) => {
     await queryRunner.release();
   }
 };
+
+export const getCust = async () => {
+  const result = await appDataSource.query(
+    `
+    SELECT
+    c.guest_code,
+    c.guest_name,
+    c.guest_birth,
+    cd.guest_hp,
+    cd.guest_addr,
+    cd.guest_mail
+  FROM
+    cust c
+  INNER JOIN
+    cust_detail cd
+  ON
+    c.guest_code=cd.guest_code
+    `
+  );
+  return result;
+};

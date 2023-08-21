@@ -7,4 +7,6 @@ router.post("/", custController.createCust);
 router.patch("/:guest_code", custController.updateCust);
 router.delete("/:guest_code", custController.deleteCust);
 
+router.get("/", custController.getCust);
+
 export default router;
