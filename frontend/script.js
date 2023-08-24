@@ -45,26 +45,32 @@ function refreshTable() {
       tableBody.innerHTML = "";
 
       data.forEach((customer) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${customer.guest_code}</td>
-          <td>${customer.guest_name}</td>
-          <td>${customer.guest_birth}</td>
-          <td>${customer.guest_hp}</td>
-          <td>${customer.guest_addr}</td>
-          <td>${customer.guest_mail}</td>
-          <td>
-            <button class="edit-button" data-guest-code="${customer.guest_code}" onclick="handleEditButtonClick(this)">Edit</button>
-            <button class="delete-button" data-guest-code="${customer.guest_code}" onclick="handleDeleteButtonClick(this)">Delete</button>
-          </td>
-        `;
-
+        const row = createRow(customer);
         tableBody.appendChild(row);
       });
     })
     .catch((error) => {
       console.error("Error refreshing table data:", error);
     });
+}
+
+// Function to create a table row for a customer
+function createRow(customer) {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${customer.guest_code}</td>
+    <td>${customer.guest_name}</td>
+    <td>${customer.guest_birth}</td>
+    <td>${customer.guest_hp}</td>
+    <td>${customer.guest_addr}</td>
+    <td>${customer.guest_mail}</td>
+    <td>
+      <button class="edit-button" data-guest-code="${customer.guest_code}" onclick="handleEditButtonClick(this)">Edit</button>
+      <button class="delete-button" data-guest-code="${customer.guest_code}" onclick="handleDeleteButtonClick(this)">Delete</button>
+    </td>
+  `;
+
+  return row;
 }
 
 // Function to handle edit button click

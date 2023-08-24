@@ -22,8 +22,8 @@ const startServer = async () => {
   await appDataSource
     .initialize()
     .then(async () => {
-      // await truncateTable("cust_detail");
-      // await truncateTable("cust");
+      await truncateTable("cust_detail");
+      await truncateTable("cust");
 
       app.listen(PORT, () => {
         console.log(`server is listen on port ${PORT}🟢`);
