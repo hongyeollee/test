@@ -40,12 +40,18 @@ function refreshTable() {
   fetch("http://13.124.184.100:3000/cust")
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
+
       tableBody.innerHTML = "";
 
-      data.forEach((customer) => {
-        const row = createRow(customer);
-        tableBody.appendChild(row);
-      });
+      if (Array.isArray(data.data)) {
+        data.data.forEach((customer) => {
+          const row = createRow(customer);
+          tableBody.appendChild(row);
+        });
+      } else {
+        console.error("Data.data 배열 아님:", data.data);
+      }
     })
     .catch((error) => {
       console.error("Error refreshing table data:", error);
