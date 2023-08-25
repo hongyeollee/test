@@ -1,5 +1,3 @@
-// script.js
-
 const customerForm = document.getElementById("customer-form");
 const editForm = document.getElementById("edit-form");
 const editDeleteButtons = document.getElementById("edit-delete-buttons");
@@ -18,7 +16,7 @@ customerForm.addEventListener("submit", async (event) => {
   });
 
   try {
-    const response = await fetch("/api/cust", {
+    const response = await fetch("http://13.124.184.100:3000/cust", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +37,7 @@ customerForm.addEventListener("submit", async (event) => {
 
 // Function to refresh the table
 function refreshTable() {
-  fetch("/api/cust")
+  fetch("http://13.124.184.100:3000/cust")
     .then((response) => response.json())
     .then((data) => {
       tableBody.innerHTML = "";
@@ -104,7 +102,7 @@ function handleEditButtonClick(button) {
 function handleDeleteButtonClick(button) {
   const guestCode = button.getAttribute("data-guest-code");
 
-  fetch(`/api/cust/${guestCode}`, {
+  fetch(`http://13.124.184.100:3000/cust/${guestCode}`, {
     method: "DELETE",
   })
     .then((response) => {
@@ -140,7 +138,7 @@ editForm.addEventListener("submit", (event) => {
     formDataObject[key] = value;
   });
 
-  fetch(`/api/cust/${selectedGuestCode}`, {
+  fetch(`http://13.124.184.100:3000/cust/${selectedGuestCode}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
